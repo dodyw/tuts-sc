@@ -1,0 +1,1 @@
+Berhasil : <?php print $_GET['data']; ?>

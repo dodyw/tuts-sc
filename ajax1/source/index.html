@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Belajar AJAX #1</title>
+  <script type="text/javascript" src="jquery.js"></script>
+  
+</head>
+<body>
+  
+  Kota : 
+  <select name="kota" id="kota">
+  <option value=""></option>
+  <option value="Surabaya">Surabaya</option>
+  <option value="Jakarta">Jakarta</option>
+  <option value="Yogyakarta">Yogyakarta</option>
+  </select>
+  
+  <input type="button" name="sendbtn" id="sendbtn" value="Kirim Data" onclick="">
+  
+  <div id="log" style="margin-top:30px;color:#f00;"></div>
+  
+  <script type="text/javascript">
+    jQuery(document).ready(function($){
+      $('#sendbtn').click(function() {
+        $.ajax({
+          url: 'ajax.php?data='+$('#kota').val(),
+          type: "GET",
+          async: true,
+          dataType: 'html',
+          success: function(data) { 
+            $('#log').html(data);
+          }  
+        }); 
+      });    
+    });   
+  </script>
+</body>
+</html>
